@@ -1,6 +1,13 @@
-<div *ngIf="loading">Cargando...</div>
-<ul *ngIf="!loading">
-  <li *ngFor="let usuario of usuarios">
-    <strong>{{ usuario.name }}</strong> - {{ usuario.email }}
+<h2>Usuarios</h2>
+
+<div *ngIf="loading" class="alert alert-info">
+  Cargando usuarios...
+</div>
+
+<ul *ngIf="!loading" class="list-group">
+  <li *ngFor="let usuario of usuarios" class="list-group-item">
+    <strong>{{ usuario.name }}</strong>  
+    <br>
+    <small>{{ usuario.email }}</small>
   </li>
 </ul>

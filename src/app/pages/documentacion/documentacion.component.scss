@@ -1,8 +1,40 @@
 h2 {
-  color: #d9534f;
+  color: #dc3545;
+  text-align: center;
   margin-bottom: 20px;
 }
-img {
-  max-height: 300px;
-  object-fit: contain;
+
+a {
+  font-weight: bold;
+  color: #0d6efd;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #6610f2;
+  }
+}
+
+.carousel {
+  margin: 40px auto;
+  max-width: 600px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+
+  img {
+    max-height: 350px;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .carousel-caption {
+    background: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    padding: 5px 10px;
+  }
 }

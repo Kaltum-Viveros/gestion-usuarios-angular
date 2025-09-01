@@ -1,7 +1,30 @@
 h2, h3 {
-  color: #007acc;
+  text-align: center;
+  color: #6610f2;
+  margin-top: 20px;
 }
+
 ul {
-  list-style: square;
-  padding-left: 20px;
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    background: #f1f1f1;
+    margin: 8px 0;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background 0.3s;
+
+    &:hover {
+      background: #dbeafe;
+    }
+  }
+}
+
+.ng-switch {
+  margin-top: 20px;
+  padding: 15px;
+  text-align: center;
+  background: #e9ecef;
+  border-radius: 10px;
 }

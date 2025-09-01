@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 export class EstructurasComponent {
   mostrar = true;
   items = ['Angular', 'TypeScript', 'NodeJS', 'Ionic'];
-  opcion = 2;
+  opcion = 3;
 }
