@@ -1,1 +1,30 @@
-<p>estructuras works!</p>
+<h2>Estructuras en Angular</h2>
+
+<!-- ngIf -->
+<div *ngIf="mostrar; else oculto">
+    <p>El valor de <strong>mostrar</strong> es TRUE ✅</p>
+</div>
+<ng-template #oculto>
+    <p>El valor de <strong>mostrar</strong> es FALSE ❌</p>
+</ng-template>
+
+<hr>
+
+<!-- ngFor -->
+<h3>Ejemplo de *ngFor:</h3>
+<ul>
+    <li *ngFor="let item of items; let i = index">
+        {{ i + 1 }} - {{ item }}
+    </li>
+</ul>
+
+<hr>
+
+<!-- ngSwitch -->
+<h3>Ejemplo de *ngSwitch:</h3>
+<div [ngSwitch]="opcion">
+  <p *ngSwitchCase="1">Opción 1 seleccionada</p>
+  <p *ngSwitchCase="2">Opción 2 seleccionada</p>
+  <p *ngSwitchCase="3">Opción 3 seleccionada</p>
+  <p *ngSwitchDefault>Opción no válida</p>
+</div>

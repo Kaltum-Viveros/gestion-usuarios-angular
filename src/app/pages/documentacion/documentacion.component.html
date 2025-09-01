@@ -1,1 +1,24 @@
-<p>documentacion works!</p>
+<h2>Documentación</h2>
+<p>
+  Visita la <a href="https://ionicframework.com/docs" target="_blank">documentación oficial de Ionic</a>.
+</p>
+
+<div id="carouselTecnologias" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div *ngFor="let tech of tecnologias; let i = index" 
+         class="carousel-item" 
+         [class.active]="i === 0">
+      <img [src]="tech.img" class="d-block w-50 mx-auto" [alt]="tech.nombre">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>{{ tech.nombre }}</h5>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselTecnologias" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselTecnologias" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>

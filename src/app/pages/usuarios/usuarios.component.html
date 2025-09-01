@@ -1,1 +1,6 @@
-<p>usuarios works!</p>
+<div *ngIf="loading">Cargando...</div>
+<ul *ngIf="!loading">
+  <li *ngFor="let usuario of usuarios">
+    <strong>{{ usuario.name }}</strong> - {{ usuario.email }}
+  </li>
+</ul>
