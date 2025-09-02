@@ -1,0 +1,81 @@
+/* ===== Paleta ===== */
+$bg-900: #0f0a1f;
+$bg-800: #15102a;
+$bg-700: #1d1636;
+$accent-1: #a78bfa;
+$accent-2: #c084fc;
+$text-100: #f8f9fb;
+$text-400: #cfd0d7;
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: linear-gradient(90deg, $bg-700 0%, $bg-800 70%, $bg-900 100%);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ===== Lado izquierdo (logo + nombre) ===== */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .brand-logo {
+    width: 100px; height: 32px; object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(124,58,237,.35));
+  }
+
+  .brand-name {
+    font-weight: 700; letter-spacing: .2px;
+    background: linear-gradient(90deg, $accent-1, $accent-2);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    font-size: 1.3rem;
+  }
+}
+
+/* ===== Links ===== */
+.nav-links {
+  display: flex;
+  gap: 20px;
+
+  a {
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: $text-400;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-family: 'Poppins', system-ui, sans-serif;
+    transition: background .2s ease, color .2s ease, transform .08s ease;
+
+    &:hover {
+      background: rgba(167,139,250,.14);
+      color: $text-100;
+      transform: translateY(-1px);
+    }
+
+    &.active {
+      background: rgba(167,139,250,.22);
+      color: $text-100;
+      box-shadow: inset 0 0 0 1px rgba(167,139,250,.25);
+    }
+  }
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}

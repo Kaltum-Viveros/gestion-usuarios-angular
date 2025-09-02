@@ -1,40 +1,82 @@
+/* ===== Paleta (igual que Home) ===== */
+$bg-900: #0f0a1f;
+$bg-800: #15102a;
+$bg-700: #1d1636;
+$accent-1: #a78bfa;
+$accent-2: #c084fc;
+$text-100: #f8f9fb;
+$text-400: #cfd0d7;
+
+/* ===== Contenedor principal ===== */
+:host {
+  display: block;
+  min-height: 100vh;
+  padding: 32px 20px;
+  background: linear-gradient(180deg, $bg-900 0%, $bg-800 65%, $bg-900 100%);
+  color: $text-100;
+}
+
+/* ===== Título ===== */
 h2 {
-  margin: 20px 0;
+  margin: 0 0 24px;
+  font-weight: 700;
+  font-size: 2.2rem;
   text-align: center;
-  color: #198754;
+
+  background: linear-gradient(90deg, $accent-1, $accent-2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 6px 24px rgba(124,58,237,.35);
 }
 
+/* ===== Alert ===== */
 .alert {
-  max-width: 500px;
-  margin: 20px auto;
+  border-radius: 12px;
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  padding: 14px 16px;
+  font-size: 1rem;
   text-align: center;
-  font-size: 1.1rem;
+  color: $text-100;
+  background: linear-gradient(180deg, rgba(167,139,250,.1), rgba(192,132,252,.08));
+  box-shadow: 0 8px 18px rgba(124,58,237,.25);
 }
 
+/* ===== Lista ===== */
 .list-group {
-  max-width: 600px;
-  margin: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 
-  .list-group-item {
-    font-size: 1rem;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    transition: all 0.3s ease;
-    cursor: pointer;
+.list-group-item {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: $text-100;
+  transition: all .2s ease;
 
-    &:hover {
-      background: #f8f9fa;
-      transform: scale(1.02);
-      box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
-    }
+  &:hover {
+    border-color: rgba(167,139,250,.45);
+    box-shadow: 0 10px 20px rgba(124,58,237,.25);
+    transform: translateY(-2px);
+  }
 
-    strong {
-      color: #0d6efd;
-    }
+  strong {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $text-100;
+    margin-bottom: 4px;
+  }
 
-    small {
-      color: #6c757d;
-    }
+  small {
+    font-size: 0.9rem;
+    color: $text-400;
   }
 }

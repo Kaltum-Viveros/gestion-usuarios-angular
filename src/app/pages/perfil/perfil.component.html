@@ -1,8 +1,28 @@
-<h2>Perfil del Usuario</h2>
-<div class="perfil-card">
-  <p><strong>Nombre:</strong> {{ usuario.nombre }}</p>
-  <p><strong>Email:</strong> {{ usuario.email }}</p>
-  <p><strong>Teléfono:</strong> {{ usuario.telefono }}</p>
-  <p><strong>Dirección:</strong> {{ usuario.direccion }}</p>
-  <p><strong>Fecha de nacimiento:</strong> {{ usuario.nacimiento }}</p>
+<div class="content">
+  <div class="content-inner">
+    <h1 class="title">Perfil del Usuario</h1>
+
+    <div class="perfil-card">
+      <div class="perfil-row">
+        <span class="label">Nombre:</span>
+        <span class="value">{{ usuario.nombre }}</span>
+      </div>
+      <div class="perfil-row">
+        <span class="label">Email:</span>
+        <span class="value">{{ usuario.email }}</span>
+      </div>
+      <div class="perfil-row">
+        <span class="label">Teléfono:</span>
+        <span class="value">{{ usuario.telefono }}</span>
+      </div>
+      <div class="perfil-row">
+        <span class="label">Dirección:</span>
+        <span class="value">{{ usuario.direccion }}</span>
+      </div>
+      <div class="perfil-row">
+        <span class="label">Fecha de nacimiento:</span>
+        <span class="value">{{ usuario.nacimiento }}</span>
+      </div>
+    </div>
+  </div>
 </div>

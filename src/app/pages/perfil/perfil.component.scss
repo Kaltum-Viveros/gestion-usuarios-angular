@@ -1,22 +1,126 @@
-.perfil-card {
-  max-width: 500px;
-  margin: 40px auto;
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
-  transition: transform 0.3s;
+// Paleta/escala (ajústala si en Home usas otras variables)
+$primary: #dd0031;       // Angular red
+$primary-600: #b30027;
+$surface: #ffffff;
+$surface-2: #f5f6f8;
+$text: #1f2937;
+$muted: #6b7280;
+$ring: rgba(221, 0, 49, 0.18);
+$shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
 
-  &:hover {
-    transform: translateY(-5px);
+// Alineación/espaciado para heredar el “centro” de Home
+:host {
+  display: block;
+}
+
+.content {
+  display: grid;
+  place-items: center;
+  padding: clamp(24px, 6vw, 64px) 16px;
+}
+
+.content-inner {
+  width: min(900px, 100%);
+  text-align: center;
+}
+
+// Título grande, consistente con Home
+.title {
+  font-size: clamp(28px, 6vw, 48px);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 24px;
+  background: linear-gradient(90deg, $text, $surface);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+// Tarjeta de perfil
+.perfil-card {
+  margin-inline: auto;
+  width: min(760px, 100%);
+  background: $surface;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  box-shadow: $shadow;
+  text-align: left;
+  padding: clamp(16px, 3vw, 28px);
+  position: relative;
+  overflow: hidden;
+
+  // anillo sutil tipo "focus" para dar el mismo aire moderno de Home
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: 0 0 0 2px $ring inset;
+    opacity: 0.4;
+  }
+}
+
+// Filas etiqueta/valor
+.perfil-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 12px 20px;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+
+  &:last-child {
+    border-bottom: 0;
   }
 
-  p {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+  .label {
+    color: $muted;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 12px;
+  }
 
-    strong {
-      color: #0d6efd;
+  .value {
+    color: $text;
+    font-size: 16px;
+    line-height: 1.5;
+    background: $surface-2;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    padding: 10px 12px;
+
+    // acento de color (detallito visual)
+    box-shadow: inset 0 0 0 2px transparent;
+    transition: box-shadow 160ms ease, border-color 160ms ease;
+
+    &:hover {
+      border-color: $primary;
+      box-shadow: inset 0 0 0 2px rgba($primary, 0.08);
     }
+  }
+}
+
+// Minihead (opcional): si quieres un subtítulo o badge
+.subtitle {
+  font-size: clamp(14px, 2.4vw, 18px);
+  color: $muted;
+  margin: 8px 0 20px;
+}
+
+// Responsivo
+@media (max-width: 640px) {
+  .perfil-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .label {
+    font-size: 11px;
+  }
+  .value {
+    font-size: 15px;
   }
 }
