@@ -1,185 +1,125 @@
-/* ================================
-   Paleta / variables del componente
-   ================================ */
-$sidebar-w: 260px;
-$bg-900: #141022;
-$bg-800: #1b1530;
-$bg-700: #241a3e;
-$grad-1: #5b21b6;  // purple-700
-$grad-2: #7c3aed;  // purple-600
-$accent: #a78bfa;  // purple-300
-$accent-2: #c084fc; // purple-300/200
-$text: #f3f4f6;
-$text-muted: #c7c9d1;
+/* ===== Paleta y medidas ===== */
+$sidebar-w: 300px;                // ⇐ más ancha
+$bg-900: #0f0a1f;
+$bg-800: #15102a;
+$bg-700: #1d1636;
+$accent-1: #a78bfa;
+$accent-2: #c084fc;
+$text-100: #f8f9fb;
+$text-400: #cfd0d7;
 
-/* Contenedor general */
-.app-shell {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+html, body { font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+
+
+/* ===== Layout base ===== */
+.layout {
+  display: grid;
+  grid-template-columns: $sidebar-w 1fr;   // col izquierda fija, derecha flexible
   min-height: 100vh;
-  background: radial-gradient(1200px 800px at 70% -10%, rgba(124, 58, 237, .18), transparent 60%),
-              linear-gradient(180deg, $bg-900, $bg-800);
-  color: $text;
+  background: linear-gradient(180deg, $bg-900 0%, $bg-800 65%, $bg-900 100%);
+  color: $text-100;
+  overflow-x: hidden;
 }
 
-/* ================================
-   Sidebar (desktop)
-   ================================ */
+/* ===== Sidebar ===== */
 .sidebar {
-  width: $sidebar-w;
+  border-right: 1px solid rgba(255,255,255,.08);
+  background: linear-gradient(180deg, $bg-700 0%, $bg-800 70%, $bg-900 100%);
+  padding: 20px 18px;
+}
+
+.sidebar-header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 6px 4px 18px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+
+  .brand-logo {
+    width: 100px; height: 32px; object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(124,58,237,.35));
+  }
+  .brand-name {
+    font-weight: 700; letter-spacing: .2px;
+    background: linear-gradient(90deg, $accent-1, $accent-2);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+}
+
+.nav-links {
+  display: flex; flex-direction: column; gap: 10px; padding-top: 18px; 
+  a {
+    display: block;
+    padding: 11px 12px;
+    border-radius: 10px;
+    color: $text-400; text-decoration: none;
+    transition: background .2s ease, color .2s ease, transform .08s ease;
+    font-size: 1.4rem;
+    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+    &:hover {
+      background: rgba(167,139,250,.14);
+      color: $text-100;
+      transform: translateX(4px);
+    }
+    &.active {
+      background: rgba(167,139,250,.22);
+      color: $text-100;
+      box-shadow: inset 0 0 0 1px rgba(167,139,250,.25);
+    }
+  }
+}
+
+/* ===== Contenido (centrado) ===== */
+.content {
+  display: grid;
+  place-items: center;              // centra vertical y horizontal
+  padding: 24px 16px;
   min-height: 100vh;
-  position: sticky;
-  top: 0;
-  padding: 24px 18px;
-  background: linear-gradient(180deg, $bg-700, $bg-800 40%, $bg-900);
-  box-shadow: 2px 0 18px rgba(0, 0, 0, .45);
-  border-right: 1px solid rgba(255, 255, 255, .06);
-
-  .brand {
-    .brand-logo {
-      width: 84px;
-      height: 84px;
-      object-fit: contain;
-      filter: drop-shadow(0 6px 14px rgba(124, 58, 237, .35));
-      animation: float 6s ease-in-out infinite;
-    }
-    .brand-title {
-      margin-top: 10px;
-      letter-spacing: .5px;
-      background: linear-gradient(90deg, $accent, $accent-2);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 0 rgba(0,0,0,0);
-    }
-  }
-
-  .menu {
-    .menu-link {
-      display: block;
-      font-weight: 500;
-      color: $text-muted;
-      text-decoration: none;
-      padding: 10px 12px;
-      border-radius: 10px;
-      margin-bottom: 6px;
-      transition: all .25s ease, transform .15s ease;
-
-      &:hover {
-        color: $text;
-        background: linear-gradient(90deg, rgba(124,58,237,.18), rgba(167,139,250,.12));
-        transform: translateX(6px);
-      }
-
-      &.active {
-        color: $text;
-        background: linear-gradient(90deg, rgba(124,58,237,.36), rgba(167,139,250,.22));
-        box-shadow: inset 0 0 0 1px rgba(167,139,250,.25);
-      }
-    }
-  }
-
-  .sidebar-footer {
-    opacity: .7;
-  }
 }
 
-/* ================================
-   Topbar móvil (abre offcanvas)
-   ================================ */
-.mobile-topbar {
-  position: sticky;
-  top: 0;
-  z-index: 1020;
-  height: 56px;
-  padding: 0 12px;
-  background: linear-gradient(90deg, $bg-800, $bg-900);
-  border-bottom: 1px solid rgba(255,255,255,.06);
-
-  .topbar-title {
-    font-weight: 600;
-    color: $accent-2;
-  }
-  .topbar-logo {
-    width: 28px;
-    height: 28px;
-  }
+.content-inner {
+  width: min(980px, 92vw);
+  margin-inline: auto;
+  text-align: center;               // ⇐ fuerza centrado perfecto
 }
 
-/* ================================
-   Main content
-   ================================ */
-.main {
-  width: 100%;
-  padding: 28px;
-  margin-left: 0;
-
-  @media (min-width: 768px) {
-    margin-left: $sidebar-w;
-    padding: 42px;
-  }
+/* Título grande, similar al logo (Poppins) */
+.title {
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 800;
+  font-size: 4.75rem;  // responsivo
+  line-height: 1.15;
+  letter-spacing: .2px;
+  margin: 0 0 50px 0;
+  text-shadow: 0 1px 0 rgba(0,0,0,.2);
 }
 
-/* Hero card */
-.hero {
-  background: linear-gradient(145deg, rgba(124,58,237,.18), rgba(20,16,34,.6));
-  backdrop-filter: blur(3px);
-  border: 1px solid rgba(255,255,255,.06);
-  border-radius: 18px;
-  overflow: hidden;
-
-  .grad-text {
-    background: linear-gradient(90deg, #e879f9, #a78bfa, #60a5fa);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  .btn-primary {
-    background: linear-gradient(90deg, $grad-1, $grad-2);
-    border: none;
-    box-shadow: 0 6px 16px rgba(124,58,237,.4);
-    transition: transform .15s ease;
-    &:hover { transform: translateY(-2px); }
-    &:active { transform: translateY(0); }
-  }
-
-  .btn-outline-light {
-    border-color: rgba(255,255,255,.4);
-    color: $text;
-    &:hover { background: rgba(255,255,255,.1); }
-  }
-
-  .hero-logo {
-    max-width: 360px;
-    width: 80%;
-    filter: drop-shadow(0 12px 28px rgba(124,58,237,.45));
-    animation: float 6s ease-in-out infinite;
-  }
+/* Descripción */
+.subtitle {
+  color: $text-400;
+  font-weight: 400;
+  font-size: 2rem;
+  max-width: 820px;
+  margin: 0 auto 40px auto;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* KPIs */
-.kpi {
-  background: linear-gradient(160deg, rgba(124,58,237,.12), rgba(20,16,34,.5));
-  border: 1px solid rgba(255,255,255,.06);
-  border-radius: 16px;
-  transition: transform .18s ease, box-shadow .2s ease;
-
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 22px rgba(0,0,0,.25);
-  }
-
-  .kpi-value {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: $accent-2;
-    margin-bottom: .25rem;
-  }
+/* Logo grande */
+.hero-logo {
+  display: block;
+  width: min(800px, 80vw);
+  margin: 0 auto;
+  filter: drop-shadow(0 16px 28px rgba(124,58,237,.45));
 }
 
-/* ================================
-   Animaciones
-   ================================ */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+/* ===== Responsivo ===== */
+@media (max-width: 991.98px) {
+  $sidebar-w: 260px;
+  .layout { grid-template-columns: $sidebar-w 1fr; }
+}
+
+@media (max-width: 575.98px) {
+  $sidebar-w: 220px;
+  .layout { grid-template-columns: $sidebar-w 1fr; }
 }

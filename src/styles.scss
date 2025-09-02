@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+/* ========== RESET GLOBAL ========== */
+:root { --sidebar-w: 260px; }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;               /* 👈 elimina el borde blanco */
+  background: #15102a;     /* fondo base dark-morado */
+  color: #f8f9fb;
+}
+
+/* Normaliza enlaces globales (opcional) */
+a {
+  text-decoration: none;
+}
+
+/* Asegura que Bootstrap no introduzca scroll lateral por paddings */
+.container,
+.container-fluid {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
