@@ -1,24 +1,83 @@
-<h2>Documentación</h2>
-<p>
-  Visita la <a href="https://ionicframework.com/docs" target="_blank">documentación oficial de Ionic</a>.
-</p>
+<div class="doc-wrapper">
+  <div class="container-xl doc-container text-center">
+    <!-- Encabezado -->
+    <h1 class="doc-title">
+      Documentación<br><span class="accent">y Recursos</span>
+    </h1>
+    <p class="doc-subtitle">
+      Encuentra aquí enlaces y material de referencia para trabajar con Angular,
+      TypeScript, Ionic, Node.js y NPM.
+    </p>
 
-<div id="carouselTecnologias" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div *ngFor="let tech of tecnologias; let i = index" 
-         class="carousel-item" 
-         [class.active]="i === 0">
-      <img [src]="tech.img" class="d-block w-50 mx-auto" [alt]="tech.nombre">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>{{ tech.nombre }}</h5>
-      </div>
+    <!-- CTA principal -->
+    <div class="cta-row d-flex flex-wrap justify-content-center gap-2 mb-4">
+      <a class="btn btn-primary btn-lg" href="https://angular.dev/" target="_blank" rel="noopener">
+        Angular Docs
+      </a>
+      <a class="btn btn-outline-light btn-lg" href="https://ionicframework.com/docs" target="_blank" rel="noopener">
+        Ionic Docs
+      </a>
+      <a class="btn btn-outline-light btn-lg" href="https://www.typescriptlang.org/docs/" target="_blank" rel="noopener">
+        TypeScript Docs
+      </a>
     </div>
-  </div>
 
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselTecnologias" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselTecnologias" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
+    <!-- Carrusel de tecnologías -->
+    <section class="card doc-card border-0 shadow-lg mb-4">
+      <div class="card-body p-4 p-lg-5">
+        <h2 class="h4 text-body-secondary mb-3">Tecnologías principales</h2>
+
+        <div id="carouselTecnologias" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <!-- Mantén tu arreglo 'tecnologias' en el .ts con {nombre, img} -->
+            <div *ngFor="let tech of tecnologias; let i = index"
+                 class="carousel-item"
+                 [class.active]="i === 0">
+              <img [src]="tech.img" class="d-block mx-auto tech-img" [alt]="tech.nombre">
+              <div class="carousel-caption d-none d-md-inline-flex align-items-center justify-content-center px-3 py-2 rounded-3 caption-bg">
+                <strong>{{ tech.nombre }}</strong>
+              </div>
+            </div>
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselTecnologias" data-bs-slide="prev" aria-label="Anterior">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselTecnologias" data-bs-slide="next" aria-label="Siguiente">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tarjetas de recursos -->
+    <section class="row g-4 doc-grid">
+      <div class="col-12 col-md-6 col-lg-4">
+        <a class="resource card h-100 border-0" href="https://angular.dev/overview" target="_blank" rel="noopener">
+          <div class="card-body">
+            <h3 class="h5 mb-2">Angular Overview</h3>
+            <p class="mb-0 text-body-secondary">Conceptos, CLI, estructura y mejores prácticas.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <a class="resource card h-100 border-0" href="https://rxjs.dev/guide/overview" target="_blank" rel="noopener">
+          <div class="card-body">
+            <h3 class="h5 mb-2">RxJS</h3>
+            <p class="mb-0 text-body-secondary">Observables y manejo reactivo de datos en Angular.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <a class="resource card h-100 border-0" href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" target="_blank" rel="noopener">
+          <div class="card-body">
+            <h3 class="h5 mb-2">Bootstrap 5</h3>
+            <p class="mb-0 text-body-secondary">Utilidades y componentes para maquetación rápida.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
 </div>
