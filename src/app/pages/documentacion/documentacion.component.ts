@@ -13,4 +13,14 @@ export class DocumentacionComponent {
     { nombre: 'Ionic', img: 'assets/ionic.png' },
     { nombre: 'NPM', img: 'assets/npm.png' }
   ];
+
+  activeIndex = 0;
+
+  prev() {
+    this.activeIndex = (this.activeIndex === 0) ? this.tecnologias.length - 1 : this.activeIndex - 1;
+  }
+
+  next() {
+    this.activeIndex = (this.activeIndex === this.tecnologias.length - 1) ? 0 : this.activeIndex + 1;
+  }
 }
